@@ -5,7 +5,7 @@ Plane::Plane()
 {
 	TextureManager::Instance()->loadSpriteSheet(
 		"../Assets/sprites/atlas.txt",
-		"../Assets/sprites/atlas.png", 
+		"../Assets/sprites/0x72.png", 
 		"spritesheet");
 
 	setSpriteSheet(TextureManager::Instance()->getSpriteSheet("spritesheet"));
@@ -37,7 +37,7 @@ void Plane::draw()
 	// draw the plane sprite with simple propeller animation
 	TextureManager::Instance()->playAnimation(
 		"spritesheet", getAnimation("plane"),
-		x, y, 0.5f, 0, 255, true);
+		x, y, 0.10f, 0, 255, true);
 }
 
 void Plane::update()
@@ -55,6 +55,7 @@ void Plane::m_buildAnimations()
 	Animation planeAnimation = Animation();
 
 	planeAnimation.name = "plane";
+	/*planeAnimation.frames.push_back(getSpriteSheet()->getFrame("plane0"));*/
 	planeAnimation.frames.push_back(getSpriteSheet()->getFrame("plane1"));
 	planeAnimation.frames.push_back(getSpriteSheet()->getFrame("plane2"));
 	planeAnimation.frames.push_back(getSpriteSheet()->getFrame("plane3"));

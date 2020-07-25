@@ -5,7 +5,7 @@ Player::Player(): m_currentAnimationState(PLAYER_IDLE_RIGHT)
 {
 	TextureManager::Instance()->loadSpriteSheet(
 		"../Assets/sprites/atlas.txt",
-		"../Assets/sprites/atlas.png", 
+		"../Assets/sprites/0x72.png", 
 		"spritesheet");
 
 	setSpriteSheet(TextureManager::Instance()->getSpriteSheet("spritesheet"));
