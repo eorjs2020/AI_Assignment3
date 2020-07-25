@@ -88,6 +88,7 @@ void PlayScene::update()
 		if(m_pPlaneSprite)
 		++m_pPlaneSprite->getTransform()->position.x;
 	}*/
+	std::cout << m_pPlaneSprite->getHealth() << std::endl;
 	
 	
 	m_setGridLOS();
@@ -208,8 +209,7 @@ void PlayScene::handleEvents()
 	{
 		if (EventManager::Instance().isKeyDown(SDL_SCANCODE_K))
 		{
-			std::cout << "DEBUG: Enemies taking damage!" << std::endl;
-
+			m_pPlaneSprite->setHealth(-10);
 			m_bDebugKeys[K_KEY] = true;
 		}
 	}

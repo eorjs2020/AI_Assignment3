@@ -23,6 +23,7 @@ Plane::Plane()
 	setType(PLANE);
 
 	m_buildAnimations();
+	m_health = 100;
 }
 
 Plane::~Plane()
@@ -48,6 +49,16 @@ void Plane::update()
 
 void Plane::clean()
 {
+}
+
+int Plane::getHealth()
+{
+	return m_health;
+}
+
+void Plane::setHealth(int a)
+{
+	m_health += a;
 }
 
 void Plane::m_buildAnimations()

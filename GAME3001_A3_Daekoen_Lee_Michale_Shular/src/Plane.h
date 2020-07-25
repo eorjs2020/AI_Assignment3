@@ -14,9 +14,12 @@ public:
 	virtual void draw() override;
 	virtual void update() override;
 	virtual void clean() override;
+	int getHealth();
+	void setHealth(int a);
 
 private:
 	void m_buildAnimations();
+	int m_health;
 };
 
 #endif /* defined (__PLANE__) */
