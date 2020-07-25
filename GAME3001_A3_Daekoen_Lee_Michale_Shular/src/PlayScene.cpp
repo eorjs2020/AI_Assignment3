@@ -45,12 +45,21 @@ void PlayScene::update()
 	CollisionManager::AABBCheck(m_pPlayer, m_pPlaneSprite);
 
 	CollisionManager::AABBCheck(m_pPlayer, m_pObstacle);
-
+	++targetNode;
+	if (targetNode >= 30)
+		targetNode = 0; 
 	if (m_bPatrolMode)
+	{
+		m_pPlaneSprite->getTransform()->position = m_pPatrolPath[targetNode]->getTransform()->position;
+	}
+
+	/*if (m_bPatrolMode)
 	{
 		if(m_pPlaneSprite)
 		++m_pPlaneSprite->getTransform()->position.x;
-	}
+	}*/
+	
+	
 	m_setGridLOS();
 }
 
@@ -195,7 +204,7 @@ void PlayScene::handleEvents()
 			if (m_bPatrolMode)
 			{
 				std::cout << "DEBUG: Patrol Mode On" << std::endl;
-				m_pPlaneSprite->getRigidBody()->velocity = glm::vec2(2.0f, 0.0f);
+				//m_pPlaneSprite->getRigidBody()->velocity = glm::vec2(2.0f, 0.0f);
 			}
 			else
 			{
@@ -322,7 +331,7 @@ void PlayScene::start()
 	m_buildGrid();
 	
 	m_buildClockwisePatrolPath();
-
+	m_displayPatrolPath();
 
 	m_bDebugMode = false;
 	m_bPatrolMode = false;
